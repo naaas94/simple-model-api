@@ -2,10 +2,6 @@
 
 A production-ready FastAPI service for serving ML models with Docker containerization, comprehensive testing, and CI/CD pipeline.
 
-[![CI/CD Pipeline](https://github.com/yourusername/simple-model-api/workflows/CI/CD%20Pipeline/badge.svg)](https://github.com/yourusername/simple-model-api/actions)
-[![Test Coverage](https://codecov.io/gh/yourusername/simple-model-api/branch/main/graph/badge.svg)](https://codecov.io/gh/yourusername/simple-model-api)
-[![Docker Image](https://img.shields.io/badge/docker-latest-blue.svg)](https://ghcr.io/yourusername/simple-model-api)
-
 ## Features
 
 - **FastAPI-based REST API** with automatic OpenAPI documentation
