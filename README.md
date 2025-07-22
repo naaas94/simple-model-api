@@ -6,7 +6,7 @@ A production-ready FastAPI service for serving ML models with Docker containeriz
 [![Test Coverage](https://codecov.io/gh/yourusername/simple-model-api/branch/main/graph/badge.svg)](https://codecov.io/gh/yourusername/simple-model-api)
 [![Docker Image](https://img.shields.io/badge/docker-latest-blue.svg)](https://ghcr.io/yourusername/simple-model-api)
 
-## 🚀 Features
+## Features
 
 - **FastAPI-based REST API** with automatic OpenAPI documentation
 - **ML Model Serving** with scikit-learn model support
@@ -18,13 +18,13 @@ A production-ready FastAPI service for serving ML models with Docker containeriz
 - **Prometheus Metrics** for observability
 - **Modular Architecture** for easy extension
 
-## 📋 Requirements
+## Requirements
 
 - Python 3.9+
 - Docker (for containerized deployment)
 - Git
 
-## 🛠️ Quick Start
+## Quick Start
 
 ### Local Development
 
@@ -76,7 +76,7 @@ A production-ready FastAPI service for serving ML models with Docker containeriz
    docker run -p 8000:8000 simple-model-api
    ```
 
-## 📚 API Documentation
+## API Documentation
 
 ### Endpoints
 
@@ -157,7 +157,7 @@ response = requests.post("http://localhost:8000/predict", json=data)
 print(response.json())
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Run Tests
 ```bash
@@ -183,7 +183,7 @@ make format
 make ci
 ```
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 simple-model-api/
@@ -210,7 +210,7 @@ simple-model-api/
 └── README.md
 ```
 
-## 🔧 Configuration
+## Configuration
 
 The application can be configured using environment variables:
 
@@ -222,7 +222,7 @@ The application can be configured using environment variables:
 | `PORT` | `8000` | Server port |
 | `DEBUG` | `False` | Debug mode |
 
-## 🚀 Deployment
+## Deployment
 
 ### Docker Compose
 ```yaml
@@ -276,14 +276,14 @@ spec:
           periodSeconds: 5
 ```
 
-## 🔍 Monitoring
+## Monitoring
 
 The service exposes Prometheus metrics at `/metrics` for monitoring:
 
 - `predictions_total`: Total number of predictions made
 - `prediction_duration_seconds`: Time spent processing predictions
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -291,18 +291,18 @@ The service exposes Prometheus metrics at `/metrics` for monitoring:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [FastAPI](https://fastapi.tiangolo.com/) for the web framework
 - [scikit-learn](https://scikit-learn.org/) for ML capabilities
 - [Docker](https://www.docker.com/) for containerization
 - [GitHub Actions](https://github.com/features/actions) for CI/CD
 
-## 📞 Support
+## Support
 
 For support and questions:
 - Open an issue on GitHub
