@@ -21,6 +21,10 @@ class Settings(BaseSettings):
     # CORS settings
     cors_origins: list = ["*"]
     
+    # Add LLM and scheduling configuration
+    UPDATE_INTERVAL_HOURS: int = 24
+    LLM_MODEL_PATH: str = "path_to_your_llm_model"
+    
     class Config:
         env_file = ".env"
         case_sensitive = False

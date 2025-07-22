@@ -85,3 +85,10 @@ class ModelManager:
             "model_version": self.model_version,
             "model_type": type(self.model).__name__
         } 
+
+def generate_word_llm():
+    # Load the model and generate multiple tokens
+    tokens = []
+    for _ in range(5):  
+        tokens.append("token")  ####### Replace with actual token generation logic
+    return " ".join(tokens) 

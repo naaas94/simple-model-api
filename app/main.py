@@ -8,6 +8,7 @@ import logging
 from app.models.model_manager import ModelManager
 from app.schemas.prediction import PredictionRequest, PredictionResponse
 from app.config import settings
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -37,6 +38,9 @@ app.add_middleware(
 # Initialize model manager
 model_manager = ModelManager()
 
+# Initialize the scheduler
+scheduler = AsyncIOScheduler()
+
 @app.on_event("startup")
 async def startup_event():
     """Initialize the model on startup."""
@@ -46,6 +50,29 @@ async def startup_event():
     except Exception as e:
         logger.error(f"Failed to load model: {e}")
         raise
+
+@app.on_event("startup")
+async def start_scheduler():
+    scheduler.start()
+
+# Initialize the current state
+current_state = {
+    "prompt": "Continue this generation of a dystopian future:",
+    "current_text": "",
+    "today_word": "",
+    "timestamp": ""
+}
+
+async def update_word():
+    # Generate today's word using the LLM
+    today_word = generate_word_llm()
+    # Update the current state
+    current_state["today_word"] = today_word
+    current_state["current_text"] += " " + today_word
+    current_state["timestamp"] = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
+    logger.info(f"Updated state: {current_state}")
+
+scheduler.add_job(update_word, 'interval', hours=settings.UPDATE_INTERVAL_HOURS)
 
 @app.get("/health")
 async def health_check():
@@ -100,6 +127,11 @@ async def predict(request: PredictionRequest):
     except Exception as e:
         logger.error(f"Prediction error: {e}")
         raise HTTPException(status_code=500, detail="Internal server error")
+
+@app.get("/today")
+async def get_today_word():
+    # Return the current state
+    return current_state
 
 @app.get("/")
 async def root():
