@@ -9,7 +9,6 @@ tags:
 
 **Version:** 1.0.0  
 **Author:** Alejandro Garay  
-**Last Updated:** 2025-01-27
 
 ---
 
